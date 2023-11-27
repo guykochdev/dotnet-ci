@@ -1,24 +1,21 @@
-name: .NET Core Desktop
+name: Build & Test 🧪
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - main
+
+env:
+  DOTNET_VERSION: '8.0.x'
 
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v3
-      - name: Setup .NET Core
-      - uses: actions/setup-dotnet@v3
+
+      - name: Setup .NET 📦
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: |
-            - value: 8.0.x
-
-
-
-
-
-
+          dotnet-version: ${{ env.DOTNET_VERSION }}
