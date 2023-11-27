@@ -1,4 +1,4 @@
-name: Build & Test 🧪
+name: dotnet CICD
 
 on:
   push:
@@ -15,9 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup .NET 📦
+      - name: Setup .NET 
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-      - name: Install dependencies 📂
+      - name: Install dependencies 
         run: dotnet restore dotnet-ci
+
+      - name: Build 
+        run: dotnet build WebApi --configuration Release --no-restore
