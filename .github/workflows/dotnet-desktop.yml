@@ -23,4 +23,4 @@ jobs:
         run: dotnet restore dotnet-ci
 
       - name: Build 
-        run: dotnet build WebApi --configuration Release --no-restore
+        run: dotnet build dotnet-ci --configuration Release --no-restore
